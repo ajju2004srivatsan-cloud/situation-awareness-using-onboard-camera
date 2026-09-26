@@ -1,0 +1,27 @@
+# MediaMTX — RTMP ingest + WebRTC playback
+# Paths: rtmp://HOST:1935/live/{deviceId}
+# WHEP:  http://HOST:8889/live/{deviceId}/whep
+
+logLevel: info
+logDestinations: [stdout]
+
+rtmp: yes
+rtmpAddress: :1935
+
+webrtc: yes
+webrtcAddress: :8889
+webrtcLocalUDPAddress: :8189
+webrtcLocalTCPAddress: :8189
+webrtcIPsFromInterfaces: yes
+# Overridden at runtime by start-all.sh when a public host is known
+webrtcAdditionalHosts: []
+
+hls: no
+rtsp: no
+srt: no
+
+pathDefaults:
+  source: publisher
+
+paths:
+  all_others:

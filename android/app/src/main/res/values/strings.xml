@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Situation Awareness Using Onboard Camera</string>
+    <string name="start_stream">GO LIVE</string>
+    <string name="stop_stream">Stop</string>
+    <string name="mode_auto">Auto (detect G20)</string>
+    <string name="mode_phone">Phone / ground</string>
+    <string name="mode_g20">Skydroid G20 UAV</string>
+</resources>
