@@ -1,0 +1,19 @@
+[Unit]
+Description=Situational Awareness MediaMTX (RTMP + WebRTC)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ogden
+Group=ogden
+WorkingDirectory=/home/ogden/situational-awareness
+EnvironmentFile=-/home/ogden/situational-awareness/.env
+# Run ./scripts/start-all.sh once first so bin/mediamtx exists.
+ExecStart=/bin/bash -c 'CFG=/home/ogden/situational-awareness/infra/mediamtx.runtime.yml; test -f "$CFG" || CFG=/home/ogden/situational-awareness/infra/mediamtx.yml; exec /home/ogden/situational-awareness/bin/mediamtx "$CFG"'
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

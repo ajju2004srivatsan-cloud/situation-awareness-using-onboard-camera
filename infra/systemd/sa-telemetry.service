@@ -1,0 +1,18 @@
+[Unit]
+Description=Situational Awareness telemetry + dashboard (Express/WebSocket)
+After=network-online.target sa-mediamtx.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ogden
+Group=ogden
+WorkingDirectory=/home/ogden/situational-awareness/server
+EnvironmentFile=-/home/ogden/situational-awareness/.env
+Environment=DASHBOARD_DIST=/home/ogden/situational-awareness/dashboard/dist
+ExecStart=/usr/local/bin/node /home/ogden/situational-awareness/server/src/index.js
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

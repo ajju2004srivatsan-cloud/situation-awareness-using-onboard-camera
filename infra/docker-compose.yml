@@ -1,0 +1,18 @@
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: sa-mediamtx
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml:ro
+    environment:
+      MTX_RTMP: "yes"
+      MTX_WEBRTC: "yes"
+
+  # Optional: run telemetry + dashboard in Docker when Node is not installed on host.
+  # Prefer host Node via start-all.sh so the built dashboard is easy to refresh.
+  # telemetry:
+  #   build: ../server
+  #   network_mode: host
+  #   env_file: ../.env

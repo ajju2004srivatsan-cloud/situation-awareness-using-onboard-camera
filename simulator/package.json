@@ -1,0 +1,13 @@
+{
+  "name": "sa-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fake UAV / ground telemetry publisher for dashboard demos",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
